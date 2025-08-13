@@ -174,10 +174,22 @@ const AdminPanel = () => {
         </div>
 
         <Tabs defaultValue="general" className="space-y-6">
-          <TabsList className="grid grid-cols-1 md:grid-cols-4 bg-white/80 backdrop-blur-sm">
+          <TabsList className="grid grid-cols-2 md:grid-cols-6 bg-white/80 backdrop-blur-sm">
             <TabsTrigger value="general" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
               <Settings className="w-4 h-4 mr-2" />
               General
+            </TabsTrigger>
+            <TabsTrigger value="medios" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
+              <Upload className="w-4 h-4 mr-2" />
+              Medios
+            </TabsTrigger>
+            <TabsTrigger value="efectos" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
+              <Sparkles className="w-4 h-4 mr-2" />
+              Efectos
+            </TabsTrigger>
+            <TabsTrigger value="redes" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
+              <Instagram className="w-4 h-4 mr-2" />
+              Redes
             </TabsTrigger>
             <TabsTrigger value="dominio" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
               <Globe className="w-4 h-4 mr-2" />
@@ -186,10 +198,6 @@ const AdminPanel = () => {
             <TabsTrigger value="seo" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
               <Image className="w-4 h-4 mr-2" />
               SEO
-            </TabsTrigger>
-            <TabsTrigger value="diseno" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
-              <Palette className="w-4 h-4 mr-2" />
-              Diseño
             </TabsTrigger>
           </TabsList>
 
