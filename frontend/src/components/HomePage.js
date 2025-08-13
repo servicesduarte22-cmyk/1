@@ -148,6 +148,14 @@ const HomePage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <Button 
+                  onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+                  size="lg" 
+                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 px-8 py-4"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Consulta por WhatsApp
+                </Button>
+                <Button 
                   onClick={() => openInstagram(mockData.contact.instagramUrl)}
                   size="lg" 
                   className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 px-8 py-4"
