@@ -40,8 +40,8 @@ const HomePage = () => {
   const categories = ["todos", "Rotulación", "Fachadas", "Metalurgia", "Luminosos"];
   
   const filteredGallery = activeCategory === "todos" 
-    ? mockData.gallery 
-    : mockData.gallery.filter(item => item.category === activeCategory);
+    ? currentData.gallery 
+    : currentData.gallery.filter(item => item.category === activeCategory);
 
   const openInstagram = (url) => {
     window.open(url, '_blank');
