@@ -1,15 +1,3 @@
-#!/bin/bash
-
-# CREAR VERSIÓN ESTÁTICA HTML PARA HOSTGATOR
-# ==========================================
-
-echo "🎯 Creando versión HTML estática para HostGator..."
-
-# Crear directorio para versión estática
-mkdir -p /app/hostgator-version/
-
-# Crear index.html basado en el React component
-cat > /app/hostgator-version/index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -736,14 +724,3 @@ cat > /app/hostgator-version/index.html << 'EOF'
 
 </body>
 </html>
-EOF
-
-echo "✅ Versión HTML estática creada para HostGator"
-echo "📁 Archivo: /app/hostgator-version/index.html"
-echo "📋 Funcionalidades incluidas:"
-echo "   • WhatsApp (4 botones + flotante)"
-echo "   • Instagram (enlaces directos)"
-echo "   • Responsive design"
-echo "   • Animaciones suaves"
-echo "   • SEO optimizado"
-echo "   • Colores atractivos"
