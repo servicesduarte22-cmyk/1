@@ -133,23 +133,6 @@ const AdminPanel = () => {
     });
   };
 
-  const handleSaveConfig = () => {
-    // Actualizar la información de la empresa
-    const updatedCompanyInfo = {
-      name: config.companyName,
-      tagline: config.tagline,
-      phone: config.phone,
-      address: config.address,
-      email: adminCompanyInfo.email
-    };
-    updateCompanyInfo(updatedCompanyInfo);
-    
-    toast({
-      title: "Configuración Guardada",
-      description: "Los cambios se han guardado correctamente.",
-    });
-  };
-
   const handleFileUpload = (event, type) => {
     const file = event.target.files[0];
     if (file) {
