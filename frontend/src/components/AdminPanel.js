@@ -17,6 +17,31 @@ const AdminPanel = () => {
   const navigate = useNavigate();
   const { logout } = useAuth();
   
+  // Cargar datos guardados al inicializar
+  useEffect(() => {
+    // Cargar redes sociales guardadas
+    const savedSocialMedia = localStorage.getItem('admin_social_media');
+    if (savedSocialMedia) {
+      try {
+        const parsedSocialMedia = JSON.parse(savedSocialMedia);
+        setSocialMedia(parsedSocialMedia);
+      } catch (e) {
+        console.error('Error loading saved social media:', e);
+      }
+    }
+
+    // Cargar efectos guardados
+    const savedEffects = localStorage.getItem('admin_effects');
+    if (savedEffects) {
+      try {
+        const parsedEffects = JSON.parse(savedEffects);
+        setVisualEffects(parsedEffects);
+      } catch (e) {
+        console.error('Error loading saved effects:', e);
+      }
+    }
+  }, []);
+  
   const [config, setConfig] = useState({
     domain: "servicesduarte.com",
     companyName: "SERVICES DUARTE",
