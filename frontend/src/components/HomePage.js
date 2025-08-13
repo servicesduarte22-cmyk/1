@@ -340,80 +340,73 @@ const HomePage = () => {
               </h2>
             </div>
 
-            <Tabs defaultValue="historia" className="max-w-6xl mx-auto">
-              <TabsList className="grid grid-cols-1 md:grid-cols-3 mb-8 bg-gray-100">
-                <TabsTrigger value="historia" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
-                  Historia
-                </TabsTrigger>
-                <TabsTrigger value="mision" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
-                  Misión & Visión
-                </TabsTrigger>
-                <TabsTrigger value="valores" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
-                  Valores
-                </TabsTrigger>
-              </TabsList>
+            {/* Historia */}
+            <Card className="border-2 border-gray-100 shadow-lg mb-12">
+              <CardContent className="p-8">
+                <p className="text-lg text-gray-700 leading-relaxed text-center">
+                  {mockData.about.history}
+                </p>
+              </CardContent>
+            </Card>
 
-              <TabsContent value="historia">
-                <Card className="border-2 border-gray-100 shadow-lg">
-                  <CardContent className="p-8">
-                    <p className="text-lg text-gray-700 leading-relaxed text-center">
-                      {mockData.about.history}
+            {/* Misión y Visión */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <Card className="border-2 border-teal-100 shadow-lg bg-gradient-to-br from-teal-50 to-blue-50 hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-teal-700 flex items-center">
+                    <Shield className="w-6 h-6 mr-2" />
+                    Nuestra Misión
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700 leading-relaxed">
+                    {mockData.about.mission}
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-2 border-orange-100 shadow-lg bg-gradient-to-br from-orange-50 to-amber-50 hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-orange-600 flex items-center">
+                    <Award className="w-6 h-6 mr-2" />
+                    Nuestra Visión
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700 leading-relaxed">
+                    {mockData.about.vision}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Valores */}
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-gray-800 mb-4">Nuestros Valores</h3>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Estos valores guían cada proyecto y relación que construimos con nuestros clientes
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {mockData.values.map((value, index) => (
+                <Card key={index} className="border-2 border-gray-100 hover:border-teal-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-gradient-to-br from-white to-gray-50">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-teal-700 flex items-center">
+                      <div className="w-8 h-8 bg-gradient-to-r from-teal-100 to-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-teal-600 font-bold text-sm">{index + 1}</span>
+                      </div>
+                      {value.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {value.description}
                     </p>
                   </CardContent>
                 </Card>
-              </TabsContent>
-
-              <TabsContent value="mision">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <Card className="border-2 border-teal-100 shadow-lg bg-gradient-to-br from-teal-50 to-blue-50">
-                    <CardHeader>
-                      <CardTitle className="text-2xl text-teal-700 flex items-center">
-                        <Shield className="w-6 h-6 mr-2" />
-                        Nuestra Misión
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-700 leading-relaxed">
-                        {mockData.about.mission}
-                      </p>
-                    </CardContent>
-                  </Card>
-                  
-                  <Card className="border-2 border-orange-100 shadow-lg bg-gradient-to-br from-orange-50 to-amber-50">
-                    <CardHeader>
-                      <CardTitle className="text-2xl text-orange-600 flex items-center">
-                        <Award className="w-6 h-6 mr-2" />
-                        Nuestra Visión
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-700 leading-relaxed">
-                        {mockData.about.vision}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="valores">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {mockData.values.map((value, index) => (
-                    <Card key={index} className="border-2 border-gray-100 hover:border-teal-200 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white to-gray-50">
-                      <CardHeader>
-                        <CardTitle className="text-lg text-teal-700">
-                          {value.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {value.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </TabsContent>
-            </Tabs>
+              ))}
+            </div>
           </div>
         </div>
       </section>
