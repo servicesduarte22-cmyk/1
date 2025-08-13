@@ -1,0 +1,8 @@
+VERIFICACIÓN DEL PAQUETE COMPLETO
+================================
+Fecha: Wed Aug 13 16:57:43 UTC 2025
+Tamaño: 244K
+
+CONTENIDO INCLUIDO:
+23
+ archivos principales incluidos
