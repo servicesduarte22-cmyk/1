@@ -590,6 +590,17 @@ const HomePage = () => {
           </div>
         </div>
       </footer>
+
+      {/* WhatsApp Floating Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <Button
+          onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+          className="bg-green-500 hover:bg-green-600 text-white rounded-full w-16 h-16 shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 animate-bounce"
+          title="Escribir por WhatsApp"
+        >
+          <MessageCircle className="w-8 h-8" />
+        </Button>
+      </div>
     </div>
   );
 };
