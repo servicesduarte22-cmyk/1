@@ -415,8 +415,499 @@ const AdminPanel = () => {
             </Card>
           </TabsContent>
 
-          {/* Design Settings */}
-          <TabsContent value="diseno" className="space-y-6">
+          {/* Media Management */}
+          <TabsContent value="medios" className="space-y-6">
+            <Card className="shadow-lg border-2 border-gray-100">
+              <CardHeader>
+                <CardTitle className="flex items-center text-teal-700">
+                  <Upload className="w-5 h-5 mr-2" />
+                  Gestión de Medios
+                </CardTitle>
+                <CardDescription>
+                  Sube y administra fotos, videos y recursos multimedia
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Logo Upload */}
+                <div>
+                  <Label htmlFor="logoUpload">Logo de la Empresa</Label>
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-teal-500 transition-colors">
+                    <Upload className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                    <p className="text-sm text-gray-600 mb-2">Arrastra tu logo aquí o haz clic para seleccionar</p>
+                    <Input 
+                      id="logoUpload"
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => handleFileUpload(e, 'logoFile')}
+                      className="hidden"
+                    />
+                    <Button 
+                      onClick={() => document.getElementById('logoUpload').click()}
+                      variant="outline"
+                      className="mt-2"
+                    >
+                      Seleccionar Logo
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Gallery Images */}
+                <div>
+                  <Label htmlFor="galleryUpload">Galería de Imágenes</Label>
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-teal-500 transition-colors">
+                    <Image className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                    <p className="text-sm text-gray-600 mb-2">Sube múltiples imágenes para la galería</p>
+                    <Input 
+                      id="galleryUpload"
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      onChange={(e) => handleFileUpload(e, 'galleryImages')}
+                      className="hidden"
+                    />
+                    <Button 
+                      onClick={() => document.getElementById('galleryUpload').click()}
+                      variant="outline"
+                      className="mt-2"
+                    >
+                      Seleccionar Imágenes
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Video Upload */}
+                <div>
+                  <Label htmlFor="videoUpload">Video Principal (Hero Section)</Label>
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-teal-500 transition-colors">
+                    <Play className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                    <p className="text-sm text-gray-600 mb-2">Video de fondo para la sección principal</p>
+                    <Input 
+                      id="videoUpload"
+                      type="file"
+                      accept="video/*"
+                      onChange={(e) => handleFileUpload(e, 'heroVideo')}
+                      className="hidden"
+                    />
+                    <Button 
+                      onClick={() => document.getElementById('videoUpload').click()}
+                      variant="outline"
+                      className="mt-2"
+                    >
+                      Seleccionar Video
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Background Image */}
+                <div>
+                  <Label htmlFor="backgroundUpload">Imagen de Fondo</Label>
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-teal-500 transition-colors">
+                    <Image className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                    <p className="text-sm text-gray-600 mb-2">Imagen de fondo personalizada para secciones</p>
+                    <Input 
+                      id="backgroundUpload"
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => handleFileUpload(e, 'backgroundImage')}
+                      className="hidden"
+                    />
+                    <Button 
+                      onClick={() => document.getElementById('backgroundUpload').click()}
+                      variant="outline"
+                      className="mt-2"
+                    >
+                      Seleccionar Imagen
+                    </Button>
+                  </div>
+                </div>
+
+                <Card className="bg-blue-50 border-blue-200">
+                  <CardContent className="p-4">
+                    <h4 className="font-semibold text-blue-800 mb-2">Formatos Soportados:</h4>
+                    <div className="text-blue-700 text-sm space-y-1">
+                      <div>📸 <strong>Imágenes:</strong> JPG, PNG, WebP, SVG (máx. 5MB)</div>
+                      <div>🎬 <strong>Videos:</strong> MP4, WebM, MOV (máx. 50MB)</div>
+                      <div>⚡ <strong>Optimización:</strong> Las imágenes se comprimen automáticamente</div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Button 
+                  onClick={handleSaveMedia}
+                  className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white"
+                >
+                  <Save className="w-4 h-4 mr-2" />
+                  Guardar Medios
+                </Button>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Visual Effects */}
+          <TabsContent value="efectos" className="space-y-6">
+            <Card className="shadow-lg border-2 border-gray-100">
+              <CardHeader>
+                <CardTitle className="flex items-center text-teal-700">
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Efectos Visuales
+                </CardTitle>
+                <CardDescription>
+                  Personaliza los efectos y animaciones de tu sitio web
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Animation Effects */}
+                  <div className="space-y-4">
+                    <h4 className="font-semibold text-gray-800 mb-3">Efectos de Animación</h4>
+                    
+                    <div className="flex items-center justify-between p-3 border rounded-lg">
+                      <div>
+                        <Label className="font-medium">Efecto Vértigo</Label>
+                        <p className="text-sm text-gray-600">Efecto de zoom infinito</p>
+                      </div>
+                      <Input
+                        type="checkbox"
+                        checked={visualEffects.vertigoEffect}
+                        onChange={(e) => handleInputChange('effects', 'vertigoEffect', e.target.checked)}
+                        className="w-5 h-5"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-between p-3 border rounded-lg">
+                      <div>
+                        <Label className="font-medium">Efecto Parallax</Label>
+                        <p className="text-sm text-gray-600">Movimiento de capas en scroll</p>
+                      </div>
+                      <Input
+                        type="checkbox"
+                        checked={visualEffects.parallaxEnabled}
+                        onChange={(e) => handleInputChange('effects', 'parallaxEnabled', e.target.checked)}
+                        className="w-5 h-5"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-between p-3 border rounded-lg">
+                      <div>
+                        <Label className="font-medium">Partículas Flotantes</Label>
+                        <p className="text-sm text-gray-600">Partículas animadas de fondo</p>
+                      </div>
+                      <Input
+                        type="checkbox"
+                        checked={visualEffects.particleEffect}
+                        onChange={(e) => handleInputChange('effects', 'particleEffect', e.target.checked)}
+                        className="w-5 h-5"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-between p-3 border rounded-lg">
+                      <div>
+                        <Label className="font-medium">Elementos Flotantes</Label>
+                        <p className="text-sm text-gray-600">Iconos y elementos que flotan</p>
+                      </div>
+                      <Input
+                        type="checkbox"
+                        checked={visualEffects.floatingElements}
+                        onChange={(e) => handleInputChange('effects', 'floatingElements', e.target.checked)}
+                        className="w-5 h-5"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Visual Effects */}
+                  <div className="space-y-4">
+                    <h4 className="font-semibold text-gray-800 mb-3">Efectos Visuales</h4>
+                    
+                    <div className="flex items-center justify-between p-3 border rounded-lg">
+                      <div>
+                        <Label className="font-medium">Glassmorphism</Label>
+                        <p className="text-sm text-gray-600">Efecto de vidrio translúcido</p>
+                      </div>
+                      <Input
+                        type="checkbox"
+                        checked={visualEffects.glassmorphism}
+                        onChange={(e) => handleInputChange('effects', 'glassmorphism', e.target.checked)}
+                        className="w-5 h-5"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-between p-3 border rounded-lg">
+                      <div>
+                        <Label className="font-medium">Animación de Gradientes</Label>
+                        <p className="text-sm text-gray-600">Gradientes que cambian de color</p>
+                      </div>
+                      <Input
+                        type="checkbox"
+                        checked={visualEffects.gradientAnimation}
+                        onChange={(e) => handleInputChange('effects', 'gradientAnimation', e.target.checked)}
+                        className="w-5 h-5"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-between p-3 border rounded-lg">
+                      <div>
+                        <Label className="font-medium">Efectos Hover</Label>
+                        <p className="text-sm text-gray-600">Animaciones al pasar el mouse</p>
+                      </div>
+                      <Input
+                        type="checkbox"
+                        checked={visualEffects.hoverEffects}
+                        onChange={(e) => handleInputChange('effects', 'hoverEffects', e.target.checked)}
+                        className="w-5 h-5"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-between p-3 border rounded-lg">
+                      <div>
+                        <Label className="font-medium">Animaciones de Scroll</Label>
+                        <p className="text-sm text-gray-600">Elementos aparecen al hacer scroll</p>
+                      </div>
+                      <Input
+                        type="checkbox"
+                        checked={visualEffects.scrollAnimations}
+                        onChange={(e) => handleInputChange('effects', 'scrollAnimations', e.target.checked)}
+                        className="w-5 h-5"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <Card className="bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
+                  <CardContent className="p-4">
+                    <h4 className="font-semibold text-purple-800 mb-2">Vista Previa de Efectos</h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-sm">
+                      <div className={`p-3 rounded-lg transition-all duration-500 ${visualEffects.vertigoEffect ? 'bg-purple-100 transform scale-105' : 'bg-gray-100'}`}>
+                        Vértigo
+                      </div>
+                      <div className={`p-3 rounded-lg transition-all duration-500 ${visualEffects.parallaxEnabled ? 'bg-blue-100 transform translate-y-1' : 'bg-gray-100'}`}>
+                        Parallax
+                      </div>
+                      <div className={`p-3 rounded-lg transition-all duration-500 ${visualEffects.glassmorphism ? 'bg-white/60 backdrop-blur-sm border' : 'bg-gray-100'}`}>
+                        Glass
+                      </div>
+                      <div className={`p-3 rounded-lg transition-all duration-500 ${visualEffects.particleEffect ? 'bg-gradient-to-br from-cyan-100 to-blue-100' : 'bg-gray-100'}`}>
+                        Partículas
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Button 
+                  onClick={handleSaveEffects}
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                >
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Aplicar Efectos
+                </Button>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Social Media */}
+          <TabsContent value="redes" className="space-y-6">
+            <Card className="shadow-lg border-2 border-gray-100">
+              <CardHeader>
+                <CardTitle className="flex items-center text-teal-700">
+                  <Instagram className="w-5 h-5 mr-2" />
+                  Redes Sociales
+                </CardTitle>
+                <CardDescription>
+                  Configura todas tus redes sociales y enlaces
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Instagram */}
+                  <Card className="border-pink-200 hover:shadow-md transition-shadow">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg flex items-center text-pink-600">
+                        <Instagram className="w-5 h-5 mr-2" />
+                        Instagram
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div>
+                        <Label>Usuario (@)</Label>
+                        <Input 
+                          value={socialMedia.instagram}
+                          onChange={(e) => handleInputChange('social', 'instagram', e.target.value)}
+                          placeholder="@tu_usuario"
+                          className="border-pink-200 focus:border-pink-500"
+                        />
+                      </div>
+                      <div>
+                        <Label>URL Completa</Label>
+                        <Input 
+                          value={socialMedia.instagramUrl}
+                          onChange={(e) => handleInputChange('social', 'instagramUrl', e.target.value)}
+                          placeholder="https://instagram.com/tu_usuario"
+                          className="border-pink-200 focus:border-pink-500"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* WhatsApp */}
+                  <Card className="border-green-200 hover:shadow-md transition-shadow">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg flex items-center text-green-600">
+                        <MessageCircle className="w-5 h-5 mr-2" />
+                        WhatsApp
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div>
+                        <Label>Número</Label>
+                        <Input 
+                          value={socialMedia.whatsapp}
+                          onChange={(e) => handleInputChange('social', 'whatsapp', e.target.value)}
+                          placeholder="+505 1234 5678"
+                          className="border-green-200 focus:border-green-500"
+                        />
+                      </div>
+                      <div>
+                        <Label>URL WhatsApp</Label>
+                        <Input 
+                          value={socialMedia.whatsappUrl}
+                          onChange={(e) => handleInputChange('social', 'whatsappUrl', e.target.value)}
+                          placeholder="https://wa.me/50512345678"
+                          className="border-green-200 focus:border-green-500"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Facebook */}
+                  <Card className="border-blue-200 hover:shadow-md transition-shadow">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg flex items-center text-blue-600">
+                        <Facebook className="w-5 h-5 mr-2" />
+                        Facebook
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div>
+                        <Label>Nombre de Página</Label>
+                        <Input 
+                          value={socialMedia.facebook}
+                          onChange={(e) => handleInputChange('social', 'facebook', e.target.value)}
+                          placeholder="Tu Página de Facebook"
+                          className="border-blue-200 focus:border-blue-500"
+                        />
+                      </div>
+                      <div>
+                        <Label>URL Facebook</Label>
+                        <Input 
+                          value={socialMedia.facebookUrl}
+                          onChange={(e) => handleInputChange('social', 'facebookUrl', e.target.value)}
+                          placeholder="https://facebook.com/tu_pagina"
+                          className="border-blue-200 focus:border-blue-500"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* YouTube */}
+                  <Card className="border-red-200 hover:shadow-md transition-shadow">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg flex items-center text-red-600">
+                        <Youtube className="w-5 h-5 mr-2" />
+                        YouTube
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div>
+                        <Label>Canal</Label>
+                        <Input 
+                          value={socialMedia.youtube}
+                          onChange={(e) => handleInputChange('social', 'youtube', e.target.value)}
+                          placeholder="Tu Canal de YouTube"
+                          className="border-red-200 focus:border-red-500"
+                        />
+                      </div>
+                      <div>
+                        <Label>URL YouTube</Label>
+                        <Input 
+                          value={socialMedia.youtubeUrl}
+                          onChange={(e) => handleInputChange('social', 'youtubeUrl', e.target.value)}
+                          placeholder="https://youtube.com/@tu_canal"
+                          className="border-red-200 focus:border-red-500"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* TikTok */}
+                  <Card className="border-black hover:shadow-md transition-shadow">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg flex items-center text-gray-800">
+                        <Tiktok className="w-5 h-5 mr-2" />
+                        TikTok
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div>
+                        <Label>Usuario (@)</Label>
+                        <Input 
+                          value={socialMedia.tiktok}
+                          onChange={(e) => handleInputChange('social', 'tiktok', e.target.value)}
+                          placeholder="@tu_usuario"
+                          className="border-gray-300 focus:border-gray-500"
+                        />
+                      </div>
+                      <div>
+                        <Label>URL TikTok</Label>
+                        <Input 
+                          value={socialMedia.tiktokUrl}
+                          onChange={(e) => handleInputChange('social', 'tiktokUrl', e.target.value)}
+                          placeholder="https://tiktok.com/@tu_usuario"
+                          className="border-gray-300 focus:border-gray-500"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* LinkedIn */}
+                  <Card className="border-blue-300 hover:shadow-md transition-shadow">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg flex items-center text-blue-700">
+                        <Linkedin className="w-5 h-5 mr-2" />
+                        LinkedIn
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div>
+                        <Label>Empresa</Label>
+                        <Input 
+                          value={socialMedia.linkedin}
+                          onChange={(e) => handleInputChange('social', 'linkedin', e.target.value)}
+                          placeholder="Tu Empresa"
+                          className="border-blue-300 focus:border-blue-500"
+                        />
+                      </div>
+                      <div>
+                        <Label>URL LinkedIn</Label>
+                        <Input 
+                          value={socialMedia.linkedinUrl}
+                          onChange={(e) => handleInputChange('social', 'linkedinUrl', e.target.value)}
+                          placeholder="https://linkedin.com/company/tu_empresa"
+                          className="border-blue-300 focus:border-blue-500"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <Button 
+                  onClick={handleSaveSocialMedia}
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white"
+                >
+                  <Save className="w-4 h-4 mr-2" />
+                  Guardar Redes Sociales
+                </Button>
+              </CardContent>
+            </Card>
+          </TabsContent>
             <Card className="shadow-lg border-2 border-gray-100">
               <CardHeader>
                 <CardTitle className="flex items-center text-teal-700">
