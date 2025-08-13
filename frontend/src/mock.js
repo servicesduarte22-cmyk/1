@@ -9,6 +9,9 @@ export const mockData = {
   
   contact: {
     phone: "+505 5705 0821",
+    whatsapp: "+505 5705 0821",
+    whatsappUrl: "https://wa.me/50557050821",
+    whatsappMessage: "Hola! Me interesa conocer más sobre los servicios de SERVICES DUARTE",
     instagram: "@Multiser_Duarte",
     instagramUrl: "https://instagram.com/Multiser_Duarte",
     address: "WALTER FERRETI (WASPAN NORTE), KM 7 CARRETERA NORTE 7C AL LAGO M/I ESQUINERA",
