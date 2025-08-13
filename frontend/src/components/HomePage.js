@@ -89,9 +89,9 @@ const HomePage = () => {
               />
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-orange-500 bg-clip-text text-transparent">
-                  {mockData.company.name}
+                  {currentData.company.name}
                 </h1>
-                <p className="text-sm text-gray-600">{mockData.company.experience} de experiencia</p>
+                <p className="text-sm text-gray-600">{currentData.company.experience} de experiencia</p>
               </div>
             </div>
             
