@@ -133,6 +133,16 @@ const AdminPanel = () => {
         ...prev,
         [field]: value
       }));
+    } else if (section === 'social') {
+      setSocialMedia(prev => ({
+        ...prev,
+        [field]: value
+      }));
+    } else if (section === 'effects') {
+      setVisualEffects(prev => ({
+        ...prev,
+        [field]: value
+      }));
     }
   };
 
