@@ -13,6 +13,29 @@ const HomePage = () => {
   const [activeCategory, setActiveCategory] = useState("todos");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [visibleItems, setVisibleItems] = useState({});
+  
+  // Usar configuraciones del panel de admin
+  const { socialMedia, companyInfo } = useAdminSettings();
+  
+  // Combinar datos del mock con configuraciones del admin
+  const currentData = {
+    ...mockData,
+    company: {
+      ...mockData.company,
+      name: companyInfo.name,
+      tagline: companyInfo.tagline
+    },
+    contact: {
+      ...mockData.contact,
+      phone: companyInfo.phone,
+      address: companyInfo.address,
+      email: companyInfo.email,
+      whatsapp: socialMedia.whatsapp,
+      whatsappUrl: socialMedia.whatsappUrl,
+      instagram: socialMedia.instagram,
+      instagramUrl: socialMedia.instagramUrl
+    }
+  };
 
   const categories = ["todos", "Rotulación", "Fachadas", "Metalurgia", "Luminosos"];
   
