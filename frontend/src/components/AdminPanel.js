@@ -11,6 +11,7 @@ import { Settings, Globe, Instagram, Palette, Image, Save, ArrowLeft, Upload, Pl
 import { useToast } from "../hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { useAdminSettings } from "../contexts/AdminContext";
 
 const AdminPanel = () => {
   const { toast } = useToast();
