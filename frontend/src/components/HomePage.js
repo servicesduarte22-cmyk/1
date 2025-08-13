@@ -21,12 +21,12 @@ const HomePage = () => {
   const currentData = {
     ...mockData,
     company: {
-      ...currentData.company,
+      ...mockData.company,
       name: companyInfo.name,
       tagline: companyInfo.tagline
     },
     contact: {
-      ...currentData.contact,
+      ...mockData.contact,
       phone: companyInfo.phone,
       address: companyInfo.address,
       email: companyInfo.email,
