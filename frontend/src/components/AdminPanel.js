@@ -17,6 +17,14 @@ const AdminPanel = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const { logout } = useAuth();
+  const { 
+    socialMedia: adminSocialMedia, 
+    visualEffects: adminVisualEffects, 
+    companyInfo: adminCompanyInfo,
+    updateSocialMedia,
+    updateVisualEffects,
+    updateCompanyInfo
+  } = useAdminSettings();
   
   // Cargar datos guardados al inicializar
   useEffect(() => {
