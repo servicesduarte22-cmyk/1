@@ -23,6 +23,12 @@ const HomePage = () => {
     window.open(url, '_blank');
   };
 
+  const openWhatsApp = (phone, message) => {
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
