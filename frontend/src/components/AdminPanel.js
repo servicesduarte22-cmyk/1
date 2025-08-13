@@ -908,6 +908,9 @@ const AdminPanel = () => {
               </CardContent>
             </Card>
           </TabsContent>
+
+          {/* Domain Settings */}
+          <TabsContent value="dominio" className="space-y-6">
             <Card className="shadow-lg border-2 border-gray-100">
               <CardHeader>
                 <CardTitle className="flex items-center text-teal-700">
