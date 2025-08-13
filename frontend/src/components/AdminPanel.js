@@ -859,7 +859,7 @@ const AdminPanel = () => {
                   <Card className="border-black hover:shadow-md transition-shadow">
                     <CardHeader className="pb-3">
                       <CardTitle className="text-lg flex items-center text-gray-800">
-                        <Tiktok className="w-5 h-5 mr-2" />
+                        <Hash className="w-5 h-5 mr-2" />
                         TikTok
                       </CardTitle>
                     </CardHeader>
