@@ -6,7 +6,7 @@ import { Badge } from "./ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Star, Phone, Instagram, MapPin, Mail, Menu, X, ExternalLink, 
          SignpostBig, Building2, Wrench, Paintbrush2, Lightbulb, 
-         Users, Award, Clock, Shield } from "lucide-react";
+         Users, Award, Clock, Shield, MessageCircle } from "lucide-react";
 
 const HomePage = () => {
   const [activeCategory, setActiveCategory] = useState("todos");
