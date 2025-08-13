@@ -1,0 +1,40 @@
+name: services-duarte
+services:
+  - name: frontend
+    source_dir: frontend
+    github:
+      repo: tu-usuario/services-duarte
+      branch: main
+    run_command: yarn start
+    build_command: yarn install && yarn build
+    environment_slug: node-js
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    routes:
+      - path: /
+    envs:
+      - key: REACT_APP_BACKEND_URL
+        value: ${backend.PUBLIC_URL}
+        
+  - name: backend
+    source_dir: backend
+    github:
+      repo: tu-usuario/services-duarte
+      branch: main
+    run_command: python -m uvicorn server:app --host 0.0.0.0 --port $PORT
+    build_command: pip install -r requirements.txt
+    environment_slug: python
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    routes:
+      - path: /api
+    envs:
+      - key: MONGO_URL
+        value: ${database.DATABASE_URL}
+      - key: DB_NAME
+        value: services_duarte
+
+databases:
+  - name: database
+    engine: MONGODB
+    size: db-s-dev-database
