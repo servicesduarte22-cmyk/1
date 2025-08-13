@@ -71,6 +71,13 @@ const AdminPanel = () => {
 
   const [socialMedia, setSocialMedia] = useState(adminSocialMedia);
   const [visualEffects, setVisualEffects] = useState(adminVisualEffects);
+  
+  const [mediaSettings, setMediaSettings] = useState({
+    galleryImages: [],
+    heroVideo: null,
+    logoFile: null,
+    backgroundImage: null
+  });
 
   const handleSaveConfig = () => {
     // En una implementación real, aquí enviarías los datos al backend
