@@ -564,6 +564,14 @@ const HomePage = () => {
             <div className="flex justify-center items-center space-x-6 mb-6">
               <Button 
                 variant="ghost" 
+                onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+                className="text-gray-400 hover:text-white"
+              >
+                <MessageCircle className="w-5 h-5 mr-2" />
+                {mockData.contact.whatsapp}
+              </Button>
+              <Button 
+                variant="ghost" 
                 onClick={() => window.open(`tel:${mockData.contact.phone}`)}
                 className="text-gray-400 hover:text-white"
               >
