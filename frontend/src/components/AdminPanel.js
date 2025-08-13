@@ -6,7 +6,8 @@ import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import { Badge } from "./ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import { Settings, Globe, Instagram, Palette, Image, Save, ArrowLeft } from "lucide-react";
+import { Settings, Globe, Instagram, Palette, Image, Save, ArrowLeft, Upload, Play, 
+         Sparkles, Facebook, Twitter, Youtube, Linkedin, Tiktok, MessageCircle } from "lucide-react";
 import { useToast } from "../hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 
