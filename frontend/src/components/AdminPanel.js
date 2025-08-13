@@ -26,30 +26,27 @@ const AdminPanel = () => {
     updateCompanyInfo
   } = useAdminSettings();
   
-  // Cargar datos guardados al inicializar
+  // Cargar datos guardados al inicializar y sincronizar con el contexto
   useEffect(() => {
-    // Cargar redes sociales guardadas
-    const savedSocialMedia = localStorage.getItem('admin_social_media');
-    if (savedSocialMedia) {
-      try {
-        const parsedSocialMedia = JSON.parse(savedSocialMedia);
-        setSocialMedia(parsedSocialMedia);
-      } catch (e) {
-        console.error('Error loading saved social media:', e);
-      }
-    }
+    // Sincronizar socialMedia con el contexto
+    setSocialMedia(adminSocialMedia);
+  }, [adminSocialMedia]);
 
-    // Cargar efectos guardados
-    const savedEffects = localStorage.getItem('admin_effects');
-    if (savedEffects) {
-      try {
-        const parsedEffects = JSON.parse(savedEffects);
-        setVisualEffects(parsedEffects);
-      } catch (e) {
-        console.error('Error loading saved effects:', e);
-      }
-    }
-  }, []);
+  useEffect(() => {
+    // Sincronizar visualEffects con el contexto
+    setVisualEffects(adminVisualEffects);
+  }, [adminVisualEffects]);
+
+  useEffect(() => {
+    // Sincronizar config con el contexto
+    setConfig(prev => ({
+      ...prev,
+      companyName: adminCompanyInfo.name,
+      tagline: adminCompanyInfo.tagline,
+      phone: adminCompanyInfo.phone,
+      address: adminCompanyInfo.address
+    }));
+  }, [adminCompanyInfo]);
   
   const [config, setConfig] = useState({
     domain: "servicesduarte.com",
