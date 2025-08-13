@@ -15,6 +15,7 @@ import { useAuth } from "../contexts/AuthContext";
 const AdminPanel = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
+  const { logout } = useAuth();
   
   const [config, setConfig] = useState({
     domain: "servicesduarte.com",
