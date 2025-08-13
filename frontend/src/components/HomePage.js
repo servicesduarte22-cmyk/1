@@ -487,6 +487,14 @@ const HomePage = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300 cursor-pointer" onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}>
+                <CardContent className="p-6 text-center">
+                  <MessageCircle className="w-8 h-8 mx-auto mb-4 text-green-300" />
+                  <h3 className="text-lg font-semibold mb-2">WhatsApp</h3>
+                  <p className="text-white/80">{mockData.contact.whatsapp}</p>
+                </CardContent>
+              </Card>
+              
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <Phone className="w-8 h-8 mx-auto mb-4 text-teal-300" />
@@ -500,14 +508,6 @@ const HomePage = () => {
                   <Instagram className="w-8 h-8 mx-auto mb-4 text-pink-300" />
                   <h3 className="text-lg font-semibold mb-2">Instagram</h3>
                   <p className="text-white/80">{mockData.contact.instagram}</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <MapPin className="w-8 h-8 mx-auto mb-4 text-orange-300" />
-                  <h3 className="text-lg font-semibold mb-2">Ubicación</h3>
-                  <p className="text-white/80 text-sm">{mockData.contact.location}</p>
                 </CardContent>
               </Card>
             </div>
