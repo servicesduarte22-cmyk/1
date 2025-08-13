@@ -87,6 +87,41 @@ const AdminPanel = () => {
     });
   };
 
+  const handleSaveSocialMedia = () => {
+    toast({
+      title: "Redes Sociales Actualizadas",
+      description: "La configuración de redes sociales se ha guardado correctamente.",
+    });
+  };
+
+  const handleSaveMedia = () => {
+    toast({
+      title: "Medios Actualizados",
+      description: "Las imágenes y videos se han subido correctamente.",
+    });
+  };
+
+  const handleSaveEffects = () => {
+    toast({
+      title: "Efectos Aplicados",
+      description: "Los efectos visuales se han aplicado al sitio web.",
+    });
+  };
+
+  const handleFileUpload = (event, type) => {
+    const file = event.target.files[0];
+    if (file) {
+      setMediaSettings(prev => ({
+        ...prev,
+        [type]: file
+      }));
+      toast({
+        title: "Archivo Subido",
+        description: `${file.name} se ha subido correctamente.`,
+      });
+    }
+  };
+
   const handleInputChange = (section, field, value) => {
     if (section === 'config') {
       setConfig(prev => ({
