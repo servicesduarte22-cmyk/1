@@ -111,6 +111,13 @@ const HomePage = () => {
                 <a href="#nosotros" className="text-gray-700 hover:text-teal-600 py-2">Nosotros</a>
                 <a href="#contacto" className="text-gray-700 hover:text-teal-600 py-2">Contacto</a>
                 <Button 
+                  onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+                  className="bg-gradient-to-r from-green-500 to-green-600 text-white w-full mt-2"
+                >
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  WhatsApp
+                </Button>
+                <Button 
                   onClick={() => openInstagram(mockData.contact.instagramUrl)}
                   className="bg-gradient-to-r from-teal-600 to-teal-700 text-white w-full mt-2"
                 >
