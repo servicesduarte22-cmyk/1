@@ -21,12 +21,12 @@ const HomePage = () => {
   const currentData = {
     ...mockData,
     company: {
-      ...mockData.company,
+      ...currentData.company,
       name: companyInfo.name,
       tagline: companyInfo.tagline
     },
     contact: {
-      ...mockData.contact,
+      ...currentData.contact,
       phone: companyInfo.phone,
       address: companyInfo.address,
       email: companyInfo.email,
@@ -135,14 +135,14 @@ const HomePage = () => {
                 <a href="#nosotros" className="text-gray-700 hover:text-teal-600 py-2">Nosotros</a>
                 <a href="#contacto" className="text-gray-700 hover:text-teal-600 py-2">Contacto</a>
                 <Button 
-                  onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+                  onClick={() => openWhatsApp(currentData.contact.whatsapp, currentData.contact.whatsappMessage)}
                   className="bg-gradient-to-r from-green-500 to-green-600 text-white w-full mt-2"
                 >
                   <MessageCircle className="w-4 h-4 mr-2" />
                   WhatsApp
                 </Button>
                 <Button 
-                  onClick={() => openInstagram(mockData.contact.instagramUrl)}
+                  onClick={() => openInstagram(currentData.contact.instagramUrl)}
                   className="bg-gradient-to-r from-teal-600 to-teal-700 text-white w-full mt-2"
                 >
                   <Instagram className="w-4 h-4 mr-2" />
@@ -162,17 +162,17 @@ const HomePage = () => {
             <div className={`transition-all duration-1000 ${visibleItems.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-orange-800 border-orange-200 mb-4 px-4 py-2">
                 <Award className="w-4 h-4 mr-2" />
-                Empresa Autorizada · RUC: {mockData.company.ruc}
+                Empresa Autorizada · RUC: {currentData.company.ruc}
               </Badge>
               <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-700 via-blue-600 to-orange-500 bg-clip-text text-transparent leading-tight">
                 SERVICES DUARTE
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
-                {mockData.company.tagline}
+                {currentData.company.tagline}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <Button 
-                  onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+                  onClick={() => openWhatsApp(currentData.contact.whatsapp, currentData.contact.whatsappMessage)}
                   size="lg" 
                   className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 px-8 py-4"
                 >
@@ -180,7 +180,7 @@ const HomePage = () => {
                   Consulta por WhatsApp
                 </Button>
                 <Button 
-                  onClick={() => openInstagram(mockData.contact.instagramUrl)}
+                  onClick={() => openInstagram(currentData.contact.instagramUrl)}
                   size="lg" 
                   className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 px-8 py-4"
                 >
@@ -193,13 +193,13 @@ const HomePage = () => {
                   className="border-2 border-teal-600 text-teal-700 hover:bg-teal-50 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 px-8 py-4"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  {mockData.contact.phone}
+                  {currentData.contact.phone}
                 </Button>
               </div>
 
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                {mockData.stats.map((stat, index) => (
+                {currentData.stats.map((stat, index) => (
                   <div key={index} className="text-center">
                     <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-teal-600 to-orange-500 bg-clip-text text-transparent mb-2">
                       {stat.number}
@@ -230,7 +230,7 @@ const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mockData.services.map((service, index) => {
+            {currentData.services.map((service, index) => {
               const IconComponent = {
                 SignpostBig, Building2, Wrench, Paintbrush2, Lightbulb
               }[service.icon];
@@ -272,7 +272,7 @@ const HomePage = () => {
                       )}
                     </div>
                     <Button 
-                      onClick={() => openInstagram(mockData.contact.instagramUrl)}
+                      onClick={() => openInstagram(currentData.contact.instagramUrl)}
                       className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                     >
                       Ver Trabajos
@@ -367,7 +367,7 @@ const HomePage = () => {
           {/* Instagram CTA */}
           <div className="text-center mt-12">
             <Button 
-              onClick={() => openInstagram(mockData.contact.instagramUrl)}
+              onClick={() => openInstagram(currentData.contact.instagramUrl)}
               size="lg"
               className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 px-8 py-4"
             >
@@ -396,7 +396,7 @@ const HomePage = () => {
             <Card className="border-2 border-gray-100 shadow-lg mb-12">
               <CardContent className="p-8">
                 <p className="text-lg text-gray-700 leading-relaxed text-center">
-                  {mockData.about.history}
+                  {currentData.about.history}
                 </p>
               </CardContent>
             </Card>
@@ -412,7 +412,7 @@ const HomePage = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700 leading-relaxed">
-                    {mockData.about.mission}
+                    {currentData.about.mission}
                   </p>
                 </CardContent>
               </Card>
@@ -426,7 +426,7 @@ const HomePage = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700 leading-relaxed">
-                    {mockData.about.vision}
+                    {currentData.about.vision}
                   </p>
                 </CardContent>
               </Card>
@@ -441,7 +441,7 @@ const HomePage = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {mockData.values.map((value, index) => (
+              {currentData.values.map((value, index) => (
                 <Card key={index} className="border-2 border-gray-100 hover:border-teal-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-gradient-to-br from-white to-gray-50">
                   <CardHeader>
                     <CardTitle className="text-lg text-teal-700 flex items-center">
@@ -477,7 +477,7 @@ const HomePage = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {mockData.testimonials.map((testimonial, index) => (
+            {currentData.testimonials.map((testimonial, index) => (
               <Card key={index} className={`bg-white shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-2 border-gray-100 hover:border-amber-200 ${visibleItems.testimonios ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: `${index * 200}ms`}}>
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
@@ -511,11 +511,11 @@ const HomePage = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300 cursor-pointer" onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}>
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300 cursor-pointer" onClick={() => openWhatsApp(currentData.contact.whatsapp, currentData.contact.whatsappMessage)}>
                 <CardContent className="p-6 text-center">
                   <MessageCircle className="w-8 h-8 mx-auto mb-4 text-green-300" />
                   <h3 className="text-lg font-semibold mb-2">WhatsApp</h3>
-                  <p className="text-white/80">{mockData.contact.whatsapp}</p>
+                  <p className="text-white/80">{currentData.contact.whatsapp}</p>
                 </CardContent>
               </Card>
               
@@ -523,22 +523,22 @@ const HomePage = () => {
                 <CardContent className="p-6 text-center">
                   <Phone className="w-8 h-8 mx-auto mb-4 text-teal-300" />
                   <h3 className="text-lg font-semibold mb-2">Teléfono</h3>
-                  <p className="text-white/80">{mockData.contact.phone}</p>
+                  <p className="text-white/80">{currentData.contact.phone}</p>
                 </CardContent>
               </Card>
               
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300 cursor-pointer" onClick={() => openInstagram(mockData.contact.instagramUrl)}>
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300 cursor-pointer" onClick={() => openInstagram(currentData.contact.instagramUrl)}>
                 <CardContent className="p-6 text-center">
                   <Instagram className="w-8 h-8 mx-auto mb-4 text-pink-300" />
                   <h3 className="text-lg font-semibold mb-2">Instagram</h3>
-                  <p className="text-white/80">{mockData.contact.instagram}</p>
+                  <p className="text-white/80">{currentData.contact.instagram}</p>
                 </CardContent>
               </Card>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+                onClick={() => openWhatsApp(currentData.contact.whatsapp, currentData.contact.whatsappMessage)}
                 size="lg" 
                 className="bg-green-600 text-white hover:bg-green-700 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 px-8 py-4"
               >
@@ -546,7 +546,7 @@ const HomePage = () => {
                 Escribir por WhatsApp
               </Button>
               <Button 
-                onClick={() => window.open(`tel:${mockData.contact.phone}`)}
+                onClick={() => window.open(`tel:${currentData.contact.phone}`)}
                 size="lg" 
                 className="bg-white text-teal-700 hover:bg-gray-100 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 px-8 py-4"
               >
@@ -554,7 +554,7 @@ const HomePage = () => {
                 Llamar Ahora
               </Button>
               <Button 
-                onClick={() => openInstagram(mockData.contact.instagramUrl)}
+                onClick={() => openInstagram(currentData.contact.instagramUrl)}
                 size="lg" 
                 variant="outline"
                 className="border-white text-white hover:bg-white/20 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 px-8 py-4"
@@ -578,7 +578,7 @@ const HomePage = () => {
                 className="h-10 w-auto"
               />
               <h3 className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent">
-                {mockData.company.name}
+                {currentData.company.name}
               </h3>
             </div>
             <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
@@ -588,35 +588,35 @@ const HomePage = () => {
             <div className="flex justify-center items-center space-x-6 mb-6">
               <Button 
                 variant="ghost" 
-                onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+                onClick={() => openWhatsApp(currentData.contact.whatsapp, currentData.contact.whatsappMessage)}
                 className="text-gray-400 hover:text-white"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
-                {mockData.contact.whatsapp}
+                {currentData.contact.whatsapp}
               </Button>
               <Button 
                 variant="ghost" 
-                onClick={() => window.open(`tel:${mockData.contact.phone}`)}
+                onClick={() => window.open(`tel:${currentData.contact.phone}`)}
                 className="text-gray-400 hover:text-white"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                {mockData.contact.phone}
+                {currentData.contact.phone}
               </Button>
               <Button 
                 variant="ghost" 
-                onClick={() => openInstagram(mockData.contact.instagramUrl)}
+                onClick={() => openInstagram(currentData.contact.instagramUrl)}
                 className="text-gray-400 hover:text-white"
               >
                 <Instagram className="w-5 h-5 mr-2" />
-                {mockData.contact.instagram}
+                {currentData.contact.instagram}
               </Button>
             </div>
             <div className="border-t border-gray-800 pt-6">
               <p className="text-gray-500 text-sm">
-                © 2025 {mockData.company.name}. Todos los derechos reservados. | RUC: {mockData.company.ruc}
+                © 2025 {currentData.company.name}. Todos los derechos reservados. | RUC: {currentData.company.ruc}
               </p>
               <p className="text-gray-600 text-xs mt-2">
-                {mockData.contact.address}
+                {currentData.contact.address}
               </p>
             </div>
           </div>
@@ -626,7 +626,7 @@ const HomePage = () => {
       {/* WhatsApp Floating Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <Button
-          onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+          onClick={() => openWhatsApp(currentData.contact.whatsapp, currentData.contact.whatsappMessage)}
           className="bg-green-500 hover:bg-green-600 text-white rounded-full w-16 h-16 shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 animate-bounce"
           title="Escribir por WhatsApp"
         >
