@@ -102,14 +102,14 @@ const HomePage = () => {
               <a href="#nosotros" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Nosotros</a>
               <a href="#contacto" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Contacto</a>
               <Button 
-                onClick={() => openWhatsApp(mockData.contact.whatsapp, mockData.contact.whatsappMessage)}
+                onClick={() => openWhatsApp(currentData.contact.whatsapp, currentData.contact.whatsappMessage)}
                 className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mr-2"
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp
               </Button>
               <Button 
-                onClick={() => openInstagram(mockData.contact.instagramUrl)}
+                onClick={() => openInstagram(currentData.contact.instagramUrl)}
                 className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
                 <Instagram className="w-4 h-4 mr-2" />
