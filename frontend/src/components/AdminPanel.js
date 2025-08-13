@@ -914,114 +914,132 @@ const AdminPanel = () => {
             <Card className="shadow-lg border-2 border-gray-100">
               <CardHeader>
                 <CardTitle className="flex items-center text-teal-700">
-                  <Palette className="w-5 h-5 mr-2" />
-                  Personalización de Diseño
+                  <Globe className="w-5 h-5 mr-2" />
+                  Configuración de Dominio
                 </CardTitle>
                 <CardDescription>
-                  Personaliza los colores y apariencia de tu sitio
+                  Conecta tu propio dominio personalizado
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div>
-                    <Label htmlFor="primaryColor">Color Primario</Label>
-                    <div className="flex items-center space-x-2">
-                      <Input 
-                        id="primaryColor"
-                        type="color"
-                        value={config.primaryColor}
-                        onChange={(e) => handleInputChange('config', 'primaryColor', e.target.value)}
-                        className="w-16 h-10 border-gray-200"
-                      />
-                      <Input 
-                        value={config.primaryColor}
-                        onChange={(e) => handleInputChange('config', 'primaryColor', e.target.value)}
-                        className="border-gray-200 focus:border-teal-500"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="secondaryColor">Color Secundario</Label>
-                    <div className="flex items-center space-x-2">
-                      <Input 
-                        id="secondaryColor"
-                        type="color"
-                        value={config.secondaryColor}
-                        onChange={(e) => handleInputChange('config', 'secondaryColor', e.target.value)}
-                        className="w-16 h-10 border-gray-200"
-                      />
-                      <Input 
-                        value={config.secondaryColor}
-                        onChange={(e) => handleInputChange('config', 'secondaryColor', e.target.value)}
-                        className="border-gray-200 focus:border-teal-500"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="backgroundColor">Color de Fondo</Label>
-                    <div className="flex items-center space-x-2">
-                      <Input 
-                        id="backgroundColor"
-                        type="color"
-                        value={config.backgroundColor}
-                        onChange={(e) => handleInputChange('config', 'backgroundColor', e.target.value)}
-                        className="w-16 h-10 border-gray-200"
-                      />
-                      <Input 
-                        value={config.backgroundColor}
-                        onChange={(e) => handleInputChange('config', 'backgroundColor', e.target.value)}
-                        className="border-gray-200 focus:border-teal-500"
-                      />
-                    </div>
-                  </div>
+                <div>
+                  <Label htmlFor="domain">Dominio Actual</Label>
+                  <Input 
+                    id="domain"
+                    value={config.domain}
+                    onChange={(e) => handleInputChange('config', 'domain', e.target.value)}
+                    className="border-gray-200 focus:border-teal-500"
+                    placeholder="tudominio.com"
+                  />
                 </div>
 
-                <Card className="bg-gray-50 border-gray-200">
+                <Card className="bg-blue-50 border-blue-200">
                   <CardContent className="p-4">
-                    <h4 className="font-semibold text-gray-800 mb-4">Vista Previa de Colores</h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <div className="text-center">
-                        <div 
-                          className="w-full h-16 rounded-lg mb-2 border-2 border-gray-300"
-                          style={{ backgroundColor: config.primaryColor }}
-                        ></div>
-                        <p className="text-sm text-gray-600">Primario</p>
-                      </div>
-                      <div className="text-center">
-                        <div 
-                          className="w-full h-16 rounded-lg mb-2 border-2 border-gray-300"
-                          style={{ backgroundColor: config.secondaryColor }}
-                        ></div>
-                        <p className="text-sm text-gray-600">Secundario</p>
-                      </div>
-                      <div className="text-center">
-                        <div 
-                          className="w-full h-16 rounded-lg mb-2 border-2 border-gray-300"
-                          style={{ backgroundColor: config.backgroundColor }}
-                        ></div>
-                        <p className="text-sm text-gray-600">Fondo</p>
-                      </div>
-                      <div className="text-center">
-                        <div 
-                          className="w-full h-16 rounded-lg mb-2 border-2 border-gray-300 bg-gradient-to-r"
-                          style={{ 
-                            backgroundImage: `linear-gradient(to right, ${config.primaryColor}, ${config.secondaryColor})` 
-                          }}
-                        ></div>
-                        <p className="text-sm text-gray-600">Gradiente</p>
-                      </div>
-                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">Instrucciones para configurar tu dominio:</h4>
+                    <ol className="list-decimal list-inside space-y-2 text-blue-700 text-sm">
+                      <li>Ve al panel de control de tu proveedor de dominio</li>
+                      <li>Busca la sección "DNS" o "Gestión de DNS"</li>
+                      <li>Crea un registro CNAME que apunte a: servicesduarte.emergent.sh</li>
+                      <li>Guarda los cambios (puede tomar 24-48 horas en propagarse)</li>
+                      <li>Vuelve aquí y actualiza tu dominio</li>
+                    </ol>
                   </CardContent>
                 </Card>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card className="bg-green-50 border-green-200 p-4">
+                    <h4 className="font-semibold text-green-800 mb-2">Estado del Dominio</h4>
+                    <Badge className="bg-green-100 text-green-800 border-green-300">
+                      ✓ Configurado Correctamente
+                    </Badge>
+                  </Card>
+                  
+                  <Card className="bg-amber-50 border-amber-200 p-4">
+                    <h4 className="font-semibold text-amber-800 mb-2">Certificado SSL</h4>
+                    <Badge className="bg-amber-100 text-amber-800 border-amber-300">
+                      🔒 Automático
+                    </Badge>
+                  </Card>
+                </div>
 
                 <Button 
                   onClick={handleSaveConfig}
                   className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white"
                 >
                   <Save className="w-4 h-4 mr-2" />
-                  Aplicar Cambios de Diseño
+                  Actualizar Dominio
+                </Button>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* SEO Settings */}
+          <TabsContent value="seo" className="space-y-6">
+            <Card className="shadow-lg border-2 border-gray-100">
+              <CardHeader>
+                <CardTitle className="flex items-center text-teal-700">
+                  <Image className="w-5 h-5 mr-2" />
+                  Configuración SEO
+                </CardTitle>
+                <CardDescription>
+                  Optimiza tu sitio para motores de búsqueda
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <Label htmlFor="seoTitle">Título SEO</Label>
+                  <Input 
+                    id="seoTitle"
+                    value={seoSettings.title}
+                    onChange={(e) => handleInputChange('seo', 'title', e.target.value)}
+                    className="border-gray-200 focus:border-teal-500"
+                  />
+                  <p className="text-sm text-gray-500 mt-1">Máximo 60 caracteres recomendado</p>
+                </div>
+
+                <div>
+                  <Label htmlFor="seoDescription">Descripción SEO</Label>
+                  <Textarea 
+                    id="seoDescription"
+                    value={seoSettings.description}
+                    onChange={(e) => handleInputChange('seo', 'description', e.target.value)}
+                    className="border-gray-200 focus:border-teal-500"
+                    rows={3}
+                  />
+                  <p className="text-sm text-gray-500 mt-1">Máximo 160 caracteres recomendado</p>
+                </div>
+
+                <div>
+                  <Label htmlFor="seoKeywords">Palabras Clave</Label>
+                  <Textarea 
+                    id="seoKeywords"
+                    value={seoSettings.keywords}
+                    onChange={(e) => handleInputChange('seo', 'keywords', e.target.value)}
+                    className="border-gray-200 focus:border-teal-500"
+                    rows={2}
+                  />
+                  <p className="text-sm text-gray-500 mt-1">Separa las palabras clave con comas</p>
+                </div>
+
+                <Card className="bg-green-50 border-green-200">
+                  <CardContent className="p-4">
+                    <h4 className="font-semibold text-green-800 mb-2">Estado SEO Actual:</h4>
+                    <div className="space-y-2 text-green-700 text-sm">
+                      <div>✓ Meta tags configurados</div>
+                      <div>✓ Open Graph implementado</div>
+                      <div>✓ Schema.org añadido</div>
+                      <div>✓ Sitemap generado automáticamente</div>
+                      <div>✓ Robots.txt configurado</div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Button 
+                  onClick={handleSaveSEO}
+                  className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white"
+                >
+                  <Save className="w-4 h-4 mr-2" />
+                  Guardar SEO
                 </Button>
               </CardContent>
             </Card>
