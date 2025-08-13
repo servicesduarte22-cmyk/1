@@ -96,11 +96,8 @@ const AdminPanel = () => {
   };
 
   const handleSaveSocialMedia = () => {
-    // Actualizar el localStorage para persistir los cambios
-    localStorage.setItem('admin_social_media', JSON.stringify(socialMedia));
-    
-    // También actualizar el archivo mock.js en tiempo real (simulado)
-    // En una implementación real, esto sería una llamada al backend
+    // Actualizar el contexto global
+    updateSocialMedia(socialMedia);
     
     toast({
       title: "Redes Sociales Actualizadas",
@@ -127,12 +124,29 @@ const AdminPanel = () => {
   };
 
   const handleSaveEffects = () => {
-    // Guardar los efectos visuales
-    localStorage.setItem('admin_effects', JSON.stringify(visualEffects));
+    // Actualizar el contexto global
+    updateVisualEffects(visualEffects);
     
     toast({
       title: "Efectos Aplicados",
       description: "Los efectos visuales se han aplicado al sitio web.",
+    });
+  };
+
+  const handleSaveConfig = () => {
+    // Actualizar la información de la empresa
+    const updatedCompanyInfo = {
+      name: config.companyName,
+      tagline: config.tagline,
+      phone: config.phone,
+      address: config.address,
+      email: adminCompanyInfo.email
+    };
+    updateCompanyInfo(updatedCompanyInfo);
+    
+    toast({
+      title: "Configuración Guardada",
+      description: "Los cambios se han guardado correctamente.",
     });
   };
 
