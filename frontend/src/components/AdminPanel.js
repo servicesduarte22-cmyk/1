@@ -34,6 +34,43 @@ const AdminPanel = () => {
     ogImage: "https://customer-assets.emergentagent.com/job_fc9657d6-7929-4eec-92e2-af27677a1c50/artifacts/et6e4mcy_Recurso%202.png"
   });
 
+  const [socialMedia, setSocialMedia] = useState({
+    instagram: "@Multiser_Duarte",
+    instagramUrl: "https://instagram.com/Multiser_Duarte",
+    facebook: "Services Duarte",
+    facebookUrl: "https://facebook.com/servicesduarte",
+    whatsapp: "+505 5705 0821",
+    whatsappUrl: "https://wa.me/50557050821",
+    youtube: "Services Duarte",
+    youtubeUrl: "https://youtube.com/@servicesduarte",
+    tiktok: "@servicesduarte",
+    tiktokUrl: "https://tiktok.com/@servicesduarte",
+    linkedin: "Services Duarte",
+    linkedinUrl: "https://linkedin.com/company/servicesduarte",
+    twitter: "@ServicesD",
+    twitterUrl: "https://twitter.com/ServicesD"
+  });
+
+  const [mediaSettings, setMediaSettings] = useState({
+    galleryImages: [],
+    heroVideo: null,
+    logoFile: null,
+    backgroundImage: null
+  });
+
+  const [visualEffects, setVisualEffects] = useState({
+    parallaxEnabled: true,
+    animationsEnabled: true,
+    particleEffect: false,
+    vertigoEffect: false,
+    glassmorphism: true,
+    fadeInAnimation: true,
+    hoverEffects: true,
+    gradientAnimation: true,
+    floatingElements: false,
+    scrollAnimations: true
+  });
+
   const handleSaveConfig = () => {
     // En una implementación real, aquí enviarías los datos al backend
     toast({
