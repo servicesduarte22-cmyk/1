@@ -169,10 +169,26 @@ const AdminPanel = () => {
               <p className="text-gray-600">Gestiona tu sitio web fácilmente</p>
             </div>
           </div>
-          <Badge className="bg-gradient-to-r from-green-100 to-teal-100 text-green-800 border-green-200 px-3 py-1">
-            <Settings className="w-4 h-4 mr-2" />
-            Panel Activo
-          </Badge>
+          <div className="flex items-center space-x-3">
+            <Badge className="bg-gradient-to-r from-green-100 to-teal-100 text-green-800 border-green-200 px-3 py-1">
+              <User className="w-4 h-4 mr-2" />
+              Sesión Activa
+            </Badge>
+            <Button 
+              variant="outline"
+              onClick={() => {
+                logout();
+                toast({
+                  title: "Sesión Cerrada",
+                  description: "Has cerrado sesión exitosamente.",
+                });
+              }}
+              className="border-red-200 text-red-700 hover:bg-red-50"
+            >
+              <LogOut className="w-4 h-4 mr-2" />
+              Cerrar Sesión
+            </Button>
+          </div>
         </div>
 
         <Tabs defaultValue="general" className="space-y-6">
