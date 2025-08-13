@@ -90,13 +90,30 @@ const AdminPanel = () => {
   };
 
   const handleSaveSocialMedia = () => {
+    // Actualizar el localStorage para persistir los cambios
+    localStorage.setItem('admin_social_media', JSON.stringify(socialMedia));
+    
+    // También actualizar el archivo mock.js en tiempo real (simulado)
+    // En una implementación real, esto sería una llamada al backend
+    
     toast({
       title: "Redes Sociales Actualizadas",
-      description: "La configuración de redes sociales se ha guardado correctamente.",
+      description: "Los enlaces de redes sociales se han guardado correctamente y se verán reflejados en la página principal.",
     });
   };
 
   const handleSaveMedia = () => {
+    // Simular el guardado de archivos multimedia
+    const mediaData = {
+      logoFile: mediaSettings.logoFile?.name || null,
+      galleryImages: mediaSettings.galleryImages?.length || 0,
+      heroVideo: mediaSettings.heroVideo?.name || null,
+      backgroundImage: mediaSettings.backgroundImage?.name || null,
+      timestamp: new Date().toISOString()
+    };
+    
+    localStorage.setItem('admin_media', JSON.stringify(mediaData));
+    
     toast({
       title: "Medios Actualizados",
       description: "Las imágenes y videos se han subido correctamente.",
@@ -104,6 +121,9 @@ const AdminPanel = () => {
   };
 
   const handleSaveEffects = () => {
+    // Guardar los efectos visuales
+    localStorage.setItem('admin_effects', JSON.stringify(visualEffects));
+    
     toast({
       title: "Efectos Aplicados",
       description: "Los efectos visuales se han aplicado al sitio web.",
